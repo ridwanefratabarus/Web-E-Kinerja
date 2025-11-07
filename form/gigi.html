@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Penilaian Karyawan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: ##DCDCDC;
+			background-image: url('bg2.jpg');   /* Ganti dengan nama file gambarmu */
+			background-size: cover;              /* Membuat gambar menutupi seluruh layar */
+			background-position: center;         /* Pusatkan gambar */
+			background-repeat: no-repeat;
+        }
+        .form-container {
+            background-color: 	#F0FFFF;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+			position: relative;
+			cursor : pointer;
+			transition: 0.3s;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+		select:hover{
+		border-color: #283e51;
+		}
+		.select-box : after{
+		content : "⬇️";
+		font-size:14px;
+		color:#4b79a1;
+		position: absolute;
+		right:15px;
+		top:50%;
+		transform:translateY(-50%);
+		pointer-event:none;
+		}
+        #submitBtn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #resultTable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        #resultTable th, #resultTable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        #resultTable th {
+            background-color: #f2f2f2;
+        }
+        #overallResult {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .sangat-baik {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .kurang-baik {
+            background-color: #FF5722;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2 style="text-align: center;">Form Penilaian Karyawan Poli Gigi (2025)</h2>
+        <form id="penilaianForm">
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <select name="namaLengkap" required>
+                    <option value="">Nama Pegawai</option>
+					<option value="Zaleha Harahap, AMKG">Zaleha Harahap, AMKG</option>
+                    <option value="Rina Nirwana Simatupang,AmkG">Rina Nirwana Simatupang,AmkG</select>
+                    <option value="Retno Wulandari">Retno Wulandari</option>
+                    </select>
+            </div>
+
+ <div class="form-group">
+                <label>1. Kehadiran / Absensi</label>
+                <select name="kp1" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>2. Disiplin</label>
+                <select name="kp2" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>3. Dedikasi</label>
+                <select name="kp3" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>4. Kerjasama</label>
+                <select name="kp4" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>5. Komunikasi</label>
+                <select name="kp5" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>6. Membina hubungan terapeutik dengan pasien / keluarga</label>
+                <select name="kp6" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>7. Menerima pasien baru dan mengorientasikan pasien / keluarga jika PPJP tidak ada di tempat</label>
+                <select name="kp7" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>8. Melakukan tindakan keperawatan pasien berdasarkan rencana perawatan PPJP</label>
+                <select name="kp8" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>9. Melakukan evaluasi dan dokumentasi tindakan keperawatan</label>
+                <select name="kp9" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>10. Mendampingi visit dokter bila PP tidak di tempat</label>
+                <select name="kp10" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>11. Menerapkan perilaku caring dalam pemberian asuhan keperawatan</label>
+                <select name="kp11" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>12. Melaporkan kepada PPJP bila menemukan masalah yang perlu di selesaikan</label>
+                <select name="kp12" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>13. Menyiapkan klien untuk pemeriksaan diagnostik, laboratorium, pengobatan, dan tindakan</label>
+                <select name="kp13" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>14. Memberikan pendidikan kesehatan pada pasien / keluarga</label>
+                <select name="kp14" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>15. Memelihara sarana, fasilitas keperawatan, dan kebersihan ruangan</label>
+                <select name="kp15" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>16. Mengikuti kegiatan ilmiah atau briefing</label>
+                <select name="kp16" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>17. Menerapkan misi pelayanan asuhan keperawatan dalam mencapai visi rumah sakit</label>
+                <select name="kp17" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>18. Melakukan pengukuran tanda-tanda vital</label>
+                <select name="kp18" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>19. Memfasilitasi personal hygiene pasien</label>
+                <select name="kp19" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>20. Memfasilitasi imobilisasi pasien di tempat tidur</label>
+                <select name="kp20" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>21. Memfasilitasi pemenuhan nutrisi peroral</label>
+                <select name="kp21" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>22. Memfasilitasi pemenuhan kebutuhan rasa nyaman</label>
+                <select name="kp22" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>23. Memfasilitasi pasien BAB dan BAK di tempat tidur</label>
+                <select name="kp23" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>24. Memfasilitasi kenyamanan dan keamanan lingkungan pasien</label>
+                <select name="kp24" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>25. Melakukan resusitasi jantung paru</label>
+                <select name="kp25" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>26. Memfasilitasi pemenuhan kebutuhan spiritual pasien</label>
+                <select name="kp26" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>27. Kepatuhan cuci tangan ≥ 85 %</label>
+                <select name="kp27" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div> <div class="form-group">
+                <label>28. Kepatuhan penggunaan APD ≥ 100%</label>
+                <select name="kp28" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>29. Kepatuhan identifikasi pasien 100%</label>
+                <select name="kp29" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>30. Kepatuhan upaya pencegahan resiko pasien jatuh 100%</label>
+                <select name="kp30" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			 <div class="form-group">
+                <label>31. Kepatuhan peningkatan komunikasi efektif 100 %</label>
+                <select name="kp31" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>	
+			 <div class="form-group">
+                <label>32. Kepatuhan peningkatan Keamanan Obat yang perlu diwaspadai (High Alert) 100%</label>
+                <select name="kp32" required>
+                    <option value="">Pilih Kriteria</option>
+                    <option value="30">Sangat Kurang (30)</option>
+                    <option value="50">Kurang (50)</option>
+                    <option value="75">Baik (75)</option>
+                    <option value="90">Sangat Baik (90)</option>
+                </select>
+            </div>
+			
+			
+            <button type="submit" id="submitBtn">💾 Simpan Penilaian</button>
+
+<style>
+#submitBtn {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+#submitBtn:hover {
+  background: linear-gradient(135deg, #15803d, #16a34a);
+  transform: translateY(-3px);
+}
+#submitBtn:active {
+  transform: translateY(1px);
+}
+</style>
+        </form>
+
+        <div id="overallResult"></div>
+
+        <table id="resultTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Kriteria</th>
+                    <th>Nilai</th>
+                </tr>
+            </thead>
+            <tbody id="resultBody"></tbody>
+            <tfoot>
+                <tr>
+                    <th>Total Skor</th>
+                    <th id="totalSkor"></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+<footer>
+   <center> <p>&copy; 2025 SIMRS/SDM RSUD Rantau Prapat.</p> </center>
+  </footer>
+    <script>
+        document.getElementById('penilaianForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            const resultBody = document.getElementById('resultBody');
+            const resultTable = document.getElementById('resultTable');
+            const overallResult = document.getElementById('overallResult');
+            const totalSkorElement = document.getElementById('totalSkor');
+            
+            // Bersihkan tabel sebelumnya
+            resultBody.innerHTML = '';
+            
+            let totalSkor = 0;
+            
+            // Tambahkan baris untuk setiap kriteria
+            for (const [kriteria, nilai] of Object.entries(data)) {
+                // Lewati field nama lengkap
+                if (kriteria === 'namaLengkap') continue;
+
+                const nilaiAngka = parseInt(nilai);
+                totalSkor += nilaiAngka;
+                
+               const row = resultBody.insertRow();
+               const cellKriteria = row.insertCell(0);
+              const cellNilai = row.insertCell(1);
+                
+                cellKriteria.textContent = kriteria.charAt(0).toUpperCase() + kriteria.slice(1);
+                cellNilai.textContent = nilaiAngka;
+            }
+            
+            // Tambahkan baris nama di tabel hasil
+            const namaRow = resultBody.insertRow();
+            const cellNamaLabel = namaRow.insertCell(0);
+            const cellNamaValue = namaRow.insertCell(1);
+            cellNamaLabel.textContent = 'Nama';
+            cellNamaValue.textContent = data.namaLengkap;
+            
+            // Tampilkan total skor
+            totalSkorElement.textContent = totalSkor;
+            resultTable.style.display = 'table';
+            
+            // Tentukan kualifikasi
+           if (totalSkor >= 2402) {
+  overallResult.textContent = 'Penilaian: SANGAT BAIK';
+  overallResult.className = 'sangat-baik';
+} 
+else if (totalSkor >= 1602 && totalSkor <= 2401) {
+  overallResult.textContent = 'Penilaian: BAIK';
+  overallResult.className = 'baik';
+} 
+else if (totalSkor >= 962 && totalSkor <= 1601) {
+  overallResult.textContent = 'Penilaian: KURANG';
+  overallResult.className = 'kurang';
+} 
+else if (totalSkor >= 1 && totalSkor <= 961) {
+  overallResult.textContent = 'Penilaian: SANGAT KURANG';
+  overallResult.className = 'sangat-kurang';
+} 
+else {
+  overallResult.textContent = 'Tidak Ada Penilaian';
+  overallResult.className = '';
+}
+			
+            // Kirim data ke Google Sheets (contoh simulasi)
+            const dataToSubmit = {
+                ...data,
+                totalSkor,
+                timestamp: new Date().toISOString()
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbwKzHwzK4m4PLVdOUjdJ5H9VM31pU1GF8Jnf2teO2zA3vHOX6aBSzFr8f07PG_AirCt6g/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+				headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(dataToSubmit)
+            })
+            .then(response => {
+                console.log("Data terkirim ke spreadsheet",data);
+				alert("✅ Data berhasil dikirim!");
+				window.location.href = "gigi.html";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

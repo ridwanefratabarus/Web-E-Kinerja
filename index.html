@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Penilaian Pegawai RSUD Rantauprapat</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: 'Arial', sans-serif;
+        }
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .room-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #ffffff, #e6e9f0);
+            box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+        }
+        .room-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+        }
+        .search-input {
+            transition: all 0.3s ease;
+        }
+        .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="container mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-blue-800 mb-4">Form Penilaian Pegawai</h1>
+            <h2 class="text-xl text-gray-600">RSUD Rantauprapat</h2>
+        </header>
+
+        <div class="mb-8">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Cari Ruangan..." 
+                class="search-input w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+            >
+        </div>
+
+        <div id="roomContainer" class="room-grid">
+            <!-- Ruangan akan dimuat secara dinamis -->
+        </div>
+    </div>
+
+    <script>
+        const rooms = [
+ { 
+    name: "Ruangan Non Bedah Melati", 
+    icon: "🌼", 
+    category: "Ruang Perawatan", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Admisi", 
+    icon: "📋", 
+    category: "Administrasi", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Anasthesi", 
+    icon: "💉", 
+    category: "Medis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Bersalin Kemuning", 
+    icon: "👶", 
+    category: "Kebidanan", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan CSSD", 
+    icon: "🧼", 
+    category: "Sterilisasi", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan ENDOSCOPY", 
+    icon: "🔬", 
+    category: "Diagnostik", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Haemodialisa", 
+    icon: "💧", 
+    category: "Medis Khusus", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan IBS", 
+    icon: "🏥", 
+    category: "Bedah", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan ICCU", 
+    icon: "❤️", 
+    category: "Intensif", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan ICU", 
+    icon: "⚕️", 
+    category: "Intensif", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan IGD", 
+    icon: "🚑", 
+    category: "Gawat Darurat", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Isolasi Terpadu Teratai", 
+    icon: "🛡️", 
+    category: "Khusus", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Keuangan", 
+    icon: "💰", 
+    category: "Administrasi", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan MPP", 
+    icon: "📊", 
+    category: "Administrasi", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan NICU", 
+    icon: "👶", 
+    category: "Intensif", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Obgyn", 
+    icon: "♀️", 
+    category: "Kebidanan", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P Adiksi", 
+    icon: "🧠", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P ANAK", 
+    icon: "👧", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P Bedah", 
+    icon: "🩺", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P CARDIOLOGI", 
+    icon: "❤️", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P. GERIATRI", 
+    icon: "👵", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P GIGI", 
+    icon: "🦷", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P. KBRS", 
+    icon: "🩺", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P. KULIT", 
+    icon: "🧴", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P. MATA", 
+    icon: "👁️", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P. NEOROLOGI", 
+    icon: "🧠", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P. ORTOPEDHY", 
+    icon: "🦴", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P. PARU", 
+    icon: "🫁", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P. Penyakit Dalam", 
+    icon: "🩺", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P. PSIKIATRI", 
+    icon: "😌", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P. TB DOTS", 
+    icon: "🦠", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan P. THT", 
+    icon: "👂", 
+    category: "Spesialis", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Pelayanan", 
+    icon: "🏥", 
+    category: "Umum", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Pemulasaran Jenazah dan Ambulance", 
+    icon: "🚑", 
+    category: "Layanan Khusus", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Perinatologi", 
+    icon: "👶", 
+    category: "Kebidanan", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Radiologi", 
+    icon: "📸", 
+    category: "Diagnostik", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Rawat Inap Bedah Mawar", 
+    icon: "🌹", 
+    category: "Ruang Perawatan", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Rawat Inap Psikiatri Anggrek", 
+    icon: "🌺", 
+    category: "Ruang Perawatan", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Rekam Medik", 
+    icon: "📁", 
+    category: "Administrasi", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan SDM Peningkatan Mutu", 
+    icon: "📈", 
+    category: "Administrasi", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan VCT", 
+    icon: "🩺", 
+    category: "Layanan Khusus", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan VIP Tulip Lavender", 
+    icon: "🌷", 
+    category: "Ruang VIP", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Zaal Anak Seroja", 
+    icon: "👧", 
+    category: "Ruang Anak", 
+    file: "login_admisi.html" 
+},
+{ 
+    name: "Ruangan Zall Wanita Flamboyan", 
+    icon: "♀️", 
+    category: "Ruang Khusus", 
+    file: "login_admisi.html" 
+}];
+
+        const roomContainer = document.getElementById('roomContainer');
+        const searchInput = document.getElementById('searchInput');
+
+        function renderRooms(roomList) {
+            roomContainer.innerHTML = '';
+            roomList.forEach(room => {
+                const roomCard = document.createElement('div');
+                roomCard.className = 'room-card p-6 rounded-xl text-center cursor-pointer';
+                roomCard.innerHTML = `
+                    <div class="text-6xl mb-4">${room.icon}</div>
+                    <h3 class="font-bold text-lg mb-2 text-blue-800">${room.name}</h3>
+                    <p class="text-sm text-gray-600">${room.category}</p>
+                `;
+                roomCard.addEventListener('click', () => {
+                    // Buka halaman spesifik untuk setiap ruangan
+                    window.location.href = room.file;
+                });
+                roomContainer.appendChild(roomCard);
+            });
+        }
+
+        function searchRooms() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredRooms = rooms.filter(room => 
+                room.name.toLowerCase().includes(searchTerm) || 
+                room.category.toLowerCase().includes(searchTerm)
+            );
+            renderRooms(filteredRooms);
+        }
+
+        // Render semua ruangan saat pertama kali dimuat
+        renderRooms(rooms);
+
+        // Tambahkan event listener untuk pencarian
+        searchInput.addEventListener('input', searchRooms);
+
+        // Fungsi untuk membuat file HTML dasar untuk setiap ruangan
+        function generateRoomTemplate(roomName) {
+            return `
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruangan ${roomName} - RSUD Rantauprapat</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="container mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-blue-800 mb-4">${roomName}</h1>
+            <a href="index.html" class="text-blue-600 hover:underline">Kembali ke Navigasi</a>
+        </header>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">Informasi Ruangan</h2>
+            <p>Detail dan informasi spesifik untuk ruangan ${roomName} akan ditambahkan di sini.</p>
+        </div>
+    </div>
+</body>
+</html>
+            `;
+        }
+
+        // Fungsi untuk membuat file-file HTML ruangan (hanya contoh, biasanya ini dilakukan di sisi server)
+        function createRoomFiles() {
+            rooms.forEach(room => {
+                // Dalam praktiknya, ini akan dilakukan di sisi server
+                console.log(`Membuat file: ${room.file}`);
+                // Contoh sederhana untuk demonstrasi
+                localStorage.setItem(room.file, generateRoomTemplate(room.name));
+            });
+        }
+
+        // Panggil fungsi untuk membuat file-file ruangan
+        createRoomFiles();
+    </script>
+</body>
+</html>

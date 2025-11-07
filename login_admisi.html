@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Sistem</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 320px;
+    }
+    .login-box h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #0ea5a4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0d9488;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-box">
+  <h3>Login Kepala Ruangan</h3>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Masuk</button>
+</div>
+
+<script>
+function login() {
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  // Username & password contoh (bisa kamu ganti)
+  if(user === "admisi" && pass === "admisi@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/admisi.html";
+  } else if
+  (user === "melati" && pass === "melati@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/melati.html";
+  }
+  else if
+  (user === "mawar" && pass === "mawar@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/mawar.html"; 
+  }
+  else if
+  (user === "teratai" && pass === "teratai@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/teratai.html";  
+  }
+  else if
+  (user === "flamboyan" && pass === "flamboyan@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/flamboyan.html";   
+  }
+  else if
+  (user === "dahlia" && pass === "dahlia@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/dahlia.html";   
+  }
+  else if
+  (user === "icu" && pass === "icu@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/icu.html";  
+  }
+  else if
+  (user === "iccu" && pass === "iccu@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/picu.html";   
+  }
+  else if
+  (user === "tulip" && pass === "tulip@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/vip-tulip-lavender.html"; 
+  }
+  else if
+  (user === "anggrek" && pass === "anggrek@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/anggrek.html"; 
+  }
+  else if
+  (user === "perinatologi" && pass === "perinatologi@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/perinatologi.html";
+  }
+  else if
+  (user === "nicu" && pass === "nicu@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/nicu.html";
+  }
+  else if
+  (user === "seroja" && pass === "seroja@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/seroja.html";  
+  }
+  else if
+  (user === "kemuning" && pass === "kemuning@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/kemuning.html";
+  }
+  else if
+  (user === "igd" && pass === "igd@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/igd.html";
+  }
+  else if
+  (user === "ibs" && pass === "ibs@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/ibs.html";
+  }
+  else if
+  (user === "anastesi" && pass === "anastesi@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/anastesi.html";
+  }
+  else if
+  (user === "obgyn" && pass === "obgyn@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/obgyn.html";
+  }
+  else if
+  (user === "cssd" && pass === "cssd@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/cssd.html";
+  }
+  else if
+  (user === "haemodialisa" && pass === "haemodialisa@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/haemodialisa.html";
+  }
+  else if
+  (user === "kbrs" && pass === "kbrs@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/kbrs.html";
+  }
+  else if
+  (user === "neorologi" && pass === "neorologi@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/neorologi.html";  
+  }
+  else if
+  (user === "paru" && pass === "paru@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/paru.html";
+  }
+  else if
+  (user === "tbdots" && pass === "tbdots@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/tbdots.html";
+  }
+  else if
+  (user === "mdr" && pass === "mdr@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/mdr.html"; 
+  }
+  else if
+  (user === "penyakitdalam" && pass === "penyakitdalam@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/penyakit-dalam.html";
+  }
+  else if
+  (user === "gigi" && pass === "gigi@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/gigi.html"; 
+  }
+  else if
+  (user === "mata" && pass === "mata@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/mata.html";
+  }
+  else if
+  (user === "bedah" && pass === "bedah@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/bedah.html";
+  }
+  else if
+  (user === "ortopedhy" && pass === "ortopedhy@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/ortopedhy.html";
+  }
+  else if
+  (user === "kulit" && pass === "kulit@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/kulit.html";
+  }
+  else if
+  (user === "anak" && pass === "anak@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/anak.html";
+  }
+  else if
+  (user === "psikiatri" && pass === "psikiatri@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/psikiatri.html"; 
+  }
+  else if
+  (user === "tht" && pass === "tht@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/tht.html";
+  }
+  else if
+  (user === "cardiologi" && pass === "cardiologi@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/cardiologi.html";
+  }
+  else if
+  (user === "endoscopy" && pass === "endoscopy@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/endoscopy.html";
+  }
+  else if
+  (user === "sdm" && pass === "sdm@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/sdm.html";
+  }
+  else if
+  (user === "pelayanan" && pass === "pelayanan@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/pelayanan.html";
+  }
+  else if
+  (user === "mpp" && pass === "mpp@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/mpp.html";
+  }
+  else if
+  (user === "rekammedik" && pass === "rekammedik@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/rekam-medik.html";
+  }
+  else if
+  (user === "pemulasaran" && pass === "pemulasaran@123") {
+    localStorage.setItem("statusLogin", "true");
+    alert("Login berhasil, Silahkan Lakukan Penilaian!");
+    window.location.href = "form/pemulasaran.html";
+  }
+  else alert("Username atau password salah!");
+}
+</script>
+
+</body>
+</html>
